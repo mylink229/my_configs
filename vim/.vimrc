@@ -19,5 +19,4 @@ runtime! archlinux.vim
 
 set number
 
-filetype plugin on
 
