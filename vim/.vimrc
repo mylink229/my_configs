@@ -20,6 +20,6 @@ runtime! archlinux.vim
 set number wrap linebreak
 
 vnoremap <C-c> "+y
-map p "+p
+noremap p "+p
 
 
