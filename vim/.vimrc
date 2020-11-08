@@ -18,3 +18,6 @@ runtime! archlinux.vim
 "let skip_defaults_vim=1
 
 set number
+
+filetype plugin on
+
