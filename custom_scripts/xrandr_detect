@@ -1,0 +1,114 @@
+
+
+#!/bin/bash
+
+MYXRANDR=/run/media/tnkpad/storage/Documents/custom_scripts
+
+EDP1=false
+HDMI1=false
+VGA1=false
+DP21=false
+DP22=false
+
+
+if xrandr | grep "eDP1 connected"; then
+	EDP1=true
+fi
+
+if xrandr | grep "HDMI1 connected"; then
+	HDMI1=true
+fi
+
+if xrandr | grep "VGA1 connected"; then
+	VGA1=true
+fi
+
+if xrandr | grep "DP2-1 connected"; then
+	DP21=true
+fi
+
+if xrandr | grep "DP2-2 connected"; then
+	DP22=true
+fi
+
+echo $EDP1
+echo $HDMI1
+echo $VGA1
+echo $DP21
+echo $DP22
+
+xrandr -s 0
+
+if [ $EDP1 == true ] && [ $HDMI1 == false ] && [ $VGA1 == false ] && [ $DP21 == false ] && [ $DP22 == false ] 
+then
+	# use laptop display without other 
+	# displays because they're disconnected
+	xrandr --output eDP1 --primary --auto
+
+# *** HDMI1 PERMUTATIONS ***
+elif [ $EDP1 == true ] && [ $HDMI1 == true ] && [ $VGA1 == false ] && [ $DP21 == false ] && [ $DP22 == false ]
+then
+	# use laptop and HDMI1
+
+	xrandr --output eDP1 --primary --auto
+	xrandr --output HDMI1 --auto --right-of eDP1
+
+elif [ $EDP1 == true ] && [ $HDMI1 == true ] && [ $VGA1 == true ] && [ $DP21 == false ] && [ $DP22 == false ]
+then
+	xrandr --output eDP1 --primary --auto
+	xrandr --output HDMI1 --auto --right-of eDP1
+	xrandr --output VGA1 --auto --right-of HDMI1
+
+elif [ $EDP1 == true ] && [ $HDMI1 == true ] && [ $VGA1 == false ] && [ $DP21 == true ] && [ $DP22 == false ]
+then
+	xrandr --output eDP1 --primary --auto
+	xrandr --output HDMI1 --auto --right-of eDP1
+	xrandr --output DP2-1 --auto --right-of HDMI1
+
+elif [ $EDP1 == true ] && [ $HDMI1 == true ] && [ $VGA1 == false ] && [ $DP21 == false ] && [ $DP22 == true ]
+then
+	xrandr --output eDP1 --primary --auto
+	xrandr --output HDMI1 --auto --right-of eDP1
+	xrandr --output DP2-2 --auto --right-of HDMI1
+
+# *** VGA1 PERMUATIONS **
+# skip VGA1 + HDMI1, already done
+elif [ $EDP1 == true ] && [ $HDMI1 == false ] && [ $VGA1 == true ] && [ $DP21 == false ] && [ $DP22 == false ]
+then
+	xrandr --output eDP1 --primary --auto
+	xrandr --output VGA1 --auto --right-of eDP1
+
+elif [ $EDP1 == true ] && [ $HDMI1 == false ] && [ $VGA1 == true ] && [ $DP21 == true ] && [ $DP22 == false ]
+then
+	xrandr --output eDP1 --primary --auto
+	xrandr --output VGA1 --auto --right-of eDP1
+	xrandr --output DP2-1 --auto --right-of VGA1 
+
+elif [ $EDP1 == true ] && [ $HDMI1 == false ] && [ $VGA1 == true ] && [ $DP21 == false ] && [ $DP22 == true ]
+then
+	xrandr --output eDP1 --primary --auto
+	xrandr --output VGA1 --auto --right-of eDP1
+	xrandr --output DP2-2 --auto --right-of VGA1 
+
+# *** DP2-1 *** PERMUTATIONS
+# skip HDMI + DP2-1 && VGA1 + DP2-1
+elif [ $EDP1 == true ] && [ $HDMI1 == false ] && [ $VGA1 == false ] && [ $DP21 == true ] && [ $DP22 == false ]
+then
+	xrandr --output eDP1 --primary --auto
+	xrandr --output DP2-1 --auto --right-of eDP1
+	
+elif [ $EDP1 == true ] && [ $HDMI1 == false ] && [ $VGA1 == false ] && [ $DP21 == true ] && [ $DP22 == true ]
+then
+	xrandr --output eDP1 --primary --auto
+	xrandr --output DP2-1 --auto --right-of eDP1
+	xrandr --output DP2-2 --auto --right-of DP2-1
+
+# *** DP2-2 *** PERMUTATIONS
+# skip HDMI + DP2-2 && VGA1 + DP2-2 && DP2-1 + DP2-2
+elif [ $EDP1 == true ] && [ $HDMI1 == false ] && [ $VGA1 == false ] && [ $DP21 == false ] && [ $DP22 == true ]
+then
+	xrandr --output eDP1 --primary --auto
+	xrandr --output DP2-2 --auto --right-of eDP1
+fi
+
+

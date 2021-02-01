@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# restarting xrandr to remove any buggy stuff
+xrandr -s 0
+
+# setting up dual monitor, external monitor is 3440p x 1440p
+xrandr --output eDP1 --primary --mode 1600x900_60.00 --rate 60.00 --output HDMI1 --mode 3440x1440 --rate 50.00 --right-of eDP1
+
+# personal conky profile
+conky -c ~/.config/conky/my_conky -x -3415

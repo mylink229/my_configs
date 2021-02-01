@@ -17,7 +17,7 @@ runtime! archlinux.vim
 " do not load defaults if ~/.vimrc is missing
 "let skip_defaults_vim=1
 
-set number wrap linebreak
+set number wrap linebreak mouse=n
 
 vnoremap y "+y
 noremap P "+p
