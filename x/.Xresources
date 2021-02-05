@@ -1,3 +1,5 @@
+
+
 Xft.dpi:       96
 Xft.antialias: true
 Xft.hinting:   true
@@ -6,58 +8,53 @@ Xft.autohint:  false
 Xft.hintstyle: hintslight
 Xft.lcdfilter: lcddefault
 
-XTerm*background:        #222D31
-XTerm*foreground:        #d8d8d8
-XTerm*pointerColor:      #1ABB9B
-XTerm*faceName:          Fixed
-XTerm*faceSize:          11
-XTerm*reverseVideo:      on
-XTerm*selectToClipboard: true
+!! Leave this commented out, it was overriding !!
+!! the following variables later in the script !!
+!
+! *background:                      #222D31
+! *foreground:                      #d8d8d8
+! *fading:                          8
+! *fadeColor:                       black
+! *cursorColor:                     #ffffff
+! *pointerColorBackground:          #2B2C2B
+! *pointerColorForeground:          #16A085
 
-*background:                      #222D31
-*foreground:                      #d8d8d8
-*fading:                          8
-*fadeColor:                       black
-*cursorColor:                     #1ABB9B
-*pointerColorBackground:          #2B2C2B
-*pointerColorForeground:          #16A085
-
-! special
-*.foreground:   #ffffff
-*.background:   #000000
-*.cursorColor:  #ffffff
-
-! black
-*.color0:       #4a4b4a
-*.color8:       #696969
-
-! red
-*.color1:       #d7699a
-*.color9:       #f5a2b5
-
-! green
-*.color2:       #80d468
-*.color10:      #a3f2a0
-
-! yellow
-*.color3:       #ed5753
-*.color11:      #ef9f9f
-
-! blue
-*.color4:       #6985d7
-*.color12:      #a2c1f5
-
-! magenta
-*.color5:       #c86ad4
-*.color13:      #d2a2f5
-
-! cyan
-*.color6:       #6fccd1
-*.color14:      #a0e9f2
-
-! white
-*.color7:       #dbdcdc
-*.color15:      #fdfdfd
+! ! special
+ *.foreground:   #e6e1dc
+ *.background:   #2b2b2b
+ *.cursorColor:  #e6e1dc
+ 
+! ! black
+ *.color0:       #2b2b2b
+ *.color8:       #5a647e
+ 
+! ! red
+ *.color1:       #da4939
+ *.color9:       #da4939
+ 
+! ! green
+ *.color2:       #a5c261
+ *.color10:      #a5c261
+ 
+! ! yellow
+ *.color3:       #ffc66d
+ *.color11:      #ffc66d
+ 
+! ! blue
+ *.color4:       #6d9cbe
+ *.color12:      #6d9cbe
+ 
+! ! magenta
+ *.color5:       #b6b3eb
+ *.color13:      #b6b3eb
+ 
+! ! cyan
+ *.color6:       #519f50
+ *.color14:      #519f50
+ 
+! ! white
+ *.color7:       #e6e1dc
+ *.color15:      #f9f7f3
 
 Xcursor.theme: xcursor-breeze
 Xcursor.size:                     0
@@ -70,12 +67,12 @@ URxvt.font:                       xft:DejaVuSansMono:size=9
 !! terminus names see end of file!
 
 URxvt.depth:                      32
-URxvt.background:                 [100]#222D31
+! URxvt.background:                 [100]#ffffff
 URxvt*scrollBar:                  false
 URxvt*mouseWheelScrollPage:       false
 URxvt*cursorBlink:                true
-URxvt*background:                 black
-URxvt*foreground:                 grey
+! URxvt*background:                 black
+! URxvt*foreground:                 grey
 URxvt*saveLines:                  5000
 
 ! for 'fake' transparency (without Compton) uncomment the following three lines
