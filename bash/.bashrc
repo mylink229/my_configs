@@ -100,11 +100,6 @@ alias more=less
 ##### My Custom Aliases #####
 
 alias cdstorage="cd /run/media/tnkpad/storage/"
-alias xrandrprimary="bash xrandr_set_primary"
-alias xrandr1="bash xrandr_set_1"
-alias xrandr2="bash xrandr_set_2"
-alias xrandr3="bash xrandr_set_3" 
-alias xrandrstartup="bash xrandr_startup"
 
 #############################
 
