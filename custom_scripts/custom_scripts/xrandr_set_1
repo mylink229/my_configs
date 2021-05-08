@@ -1,0 +1,6 @@
+#!/bin/bash
+
+xrandr -s 0
+xrandr --output eDP1 --primary --mode 1600x900_60.00 --rate 60.00 --output HDMI1 --mode 3440x1440 --rate 50.00 --right-of eDP1
+
+

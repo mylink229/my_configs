@@ -1,0 +1,19 @@
+
+
+#!/bin/bash
+
+ROTATE=$1
+
+xrandr -s 0
+
+if [ -n "$ROTATE" ]; then
+	xrandr --output DP2-2 --auto  --right-of eDP1
+	xrandr --output DP2-1 --auto --right-of DP2-2 --rotate $ROTATE
+
+else
+	xrandr --output DP2-2 --auto --right-of eDP1
+	xrandr --output DP2-1 --auto --right-of DP2-2
+
+fi
+
+
